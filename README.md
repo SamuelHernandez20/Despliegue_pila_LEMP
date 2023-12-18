@@ -49,3 +49,19 @@ Modificar el propietario y grupo de /var/www/html para usuario de **Nginx**:
 ```
 chown -R www-data:www-data /var/www/html
 ```
+## 2. Archivo de configuración de Nginx:
+Habrá que configurarlo para poder definir los enlaces permanentes y que WordPress pueda trabajar con **enlaces permanentes**.
+Yo en principio agregué en el **default** la siguiente línea:
+```
+location / {
+# First attempt to serve request as file, then
+# as directory, then fall back to displaying a 404.
+index index.php index.html index.htm;
+try_files $uri $uri/ /index.php?$args;
+        }
+```
+## 3. Modificación del script del Let's Encrypt:
+```
+certbot --nginx -m $CORREO --agree-tos --no-eff-email -d $dominio --non-interactive
+```
+
