@@ -61,6 +61,7 @@ try_files $uri $uri/ /index.php?$args;
         }
 ```
 ## 3. Modificación del script del Let's Encrypt:
+Será necesario modificar al servidor que quiero definir como solicitante, en este caso **nginx**
 ```
 certbot --nginx -m $CORREO --agree-tos --no-eff-email -d $dominio --non-interactive
 ```
