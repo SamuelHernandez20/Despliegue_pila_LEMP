@@ -12,6 +12,8 @@ apt update
 
 apt install nginx -y
 
+apt install mysql-server -y
+
 # Instalación de php-fpm y php-mysql:
 #-----------------------------------------------
 apt install php-fpm php-mysql -y
